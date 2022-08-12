@@ -1,0 +1,26 @@
+#dino{
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    bottom: 190px;
+    left: 100px;
+}
+
+#dino img{
+    width: 100%;
+    height: 100%;
+}
+
+.salto{
+    animation: salto 500ms linear;
+}
+
+
+@keyframes salto {
+    0%{
+        bottom: 190px;
+    }
+    45%, 55%{
+        bottom: 300px;
+    }
+}
