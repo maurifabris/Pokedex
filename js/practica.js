@@ -78,6 +78,37 @@ const producto1 = {
     nombre : "medias",
 }
 
-let {valor, nombre} = producto1
+const producto2 = {
+    valor : 250,
+    id : 25,
+    impuestos : undefined,
+    nombre : "pantalon",
+}
 
-console.log(valor, nombre)
+const producto3 = {
+    valor : 300,
+    id : 26,
+    impuestos : 150,
+    nombre : "remera",
+}
+
+
+//let {valor, nombre} = producto1
+
+//console.log(valor, nombre)
+
+//const productos = [producto1,producto2,producto3]
+/*let acumulador = 0
+productos.forEach(producto => {
+   acumulador += producto.impuestos ?? 0
+}
+)*/
+
+//console.log(acumulador)
+
+localStorage.setItem("productos",JSON.stringify(producto1))
+
+const productos = JSON.parse(localStorage.getItem("productos")) ?? []
+
+
+(producto2. id > 20) ? console.log("id mayor a 20") : console.log("id menor a 20")
