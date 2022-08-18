@@ -1,4 +1,5 @@
-/*
+//const { reset } = require("nodemon")
+
 const dino = document.getElementById("dino")
 
 const marco = document.getElementById("marco")
@@ -9,6 +10,8 @@ const captus = document.getElementById("captus")
 
 const buttonFlow = document.getElementById("button-flow")
 
+const reinicio = document.getElementById("reset")
+
 let puntos = 0  //no logro que funcionen usando cost
 
 let puntosInterval 
@@ -16,14 +19,16 @@ let puntosInterval
 
 //elemento para iniciar el salto 
 
-document.addEventListener("click", () => {
-    dino.classList.toggle("salto");
+marco.addEventListener("click", () => {
+    dino.classList.add("salto");
 })
 
 //este evento remueve la propiedad de "salto" para poder volver a usarse
+
 dino.addEventListener('animationend', () => {
     dino.classList.remove("salto")
 }); 
+
 
 
 //pausa las animaciones del juego
@@ -51,64 +56,68 @@ buttonFlow.addEventListener('click', () => {
    
 })
 
-
+//esta funcion suma un punto cada 0.5 y muestra una notificacion al llegar a 5 y 10 puntos, la idea es cambiarlo a que salga cuando supere el maximo del json
 function iniciarPuntos() {
     puntosInterval = setInterval( () =>{
         puntos++;
         document.getElementById("puntos").innerText = puntos
-    }, 500
-    )
-}
+        if(puntos == 10 || puntos == 5){
+            Toastify({
+                text: "WOW",
+                duration: 3000,
+                destination: "https://github.com/apvarun/toastify-js",
+                newWindow: true,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "left", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                    background: "radial-gradient(circle, rgba(206,184,193,1) 0%, rgba(136,140,146,1) 100%)",
+                 borderRadius: "10px"
+                },
+                onClick: function(){} // Callback after click
+              }).showToast();
+        }
+    }, 500,)
+    
+    }
+   
+
 
 
 function pararPuntaje(){
     clearInterval(puntosInterval)
 }
-*/
 
 
 
-////////////////////////////////////
 
-
-const producto1 = {
-    valor : 250,
-    id : 24,
-    impuestos : 100,
-    nombre : "medias",
+function reiniciar(){
+    puntos = 0
+    dino.classList.remove("salto")
+    captus.classList.remove("movimientoCaptus")
 }
 
-const producto2 = {
-    valor : 250,
-    id : 25,
-    impuestos : undefined,
-    nombre : "pantalon",
-}
+reinicio.addEventListener("click", () =>{
+    pararAnimacion()
+    Swal.fire({
+        title: 'Listo?',
+        //text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'SI!',
+        cancelButtonText: 'NO!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            reiniciar()
+            iniciar()
+        } else{
+            iniciar()
+            buttonFlow.classList.remove("play")
+        }
+      })
+        })
+    
 
-const producto3 = {
-    valor : 300,
-    id : 26,
-    impuestos : 150,
-    nombre : "remera",
-}
-
-
-//let {valor, nombre} = producto1
-
-//console.log(valor, nombre)
-
-//const productos = [producto1,producto2,producto3]
-/*let acumulador = 0
-productos.forEach(producto => {
-   acumulador += producto.impuestos ?? 0
-}
-)*/
-
-//console.log(acumulador)
-
-localStorage.setItem("productos",JSON.stringify(producto1))
-
-const productos = JSON.parse(localStorage.getItem("productos")) ?? []
-
-
-(producto2. id > 20) ? console.log("id mayor a 20") : console.log("id menor a 20")
