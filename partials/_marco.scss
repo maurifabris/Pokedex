@@ -3,7 +3,6 @@ body{
 }
 
 #marco{  
-    background-color: blue;
     width: 100%;
     height: 600px;
     position: relative;
@@ -24,7 +23,7 @@ body{
     animation: animatedfondo  25s linear infinite;
 }
 
-
+//animacion de mover el fondo
 @keyframes animatedfondo {
     from {
       background-position: 0 0;
@@ -46,7 +45,7 @@ body{
       max-height: 100%;
     }
 }
-
+//movimiento de los captus
 @keyframes animacioncaptus{
   0%{
     right: 0;
@@ -66,9 +65,7 @@ body{
   
 }
 
-#puntos{
-  color: red
-}
+
 
 
 .menu{

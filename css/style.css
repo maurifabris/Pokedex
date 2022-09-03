@@ -2,7 +2,6 @@ body {
   margin: 0px; }
 
 #marco {
-  background-color: blue;
   width: 100%;
   height: 600px;
   position: relative; }
@@ -47,9 +46,6 @@ body {
   text-align: center;
   margin-top: 20px; }
 
-#puntos {
-  color: red; }
-
 .menu {
   display: flex;
   justify-content: center; }
@@ -85,7 +81,7 @@ body {
   height: 100%; }
 
 .salto {
-  animation: salto 2000ms linear; }
+  animation: salto 900ms linear; }
 
 @keyframes salto {
   0% {
