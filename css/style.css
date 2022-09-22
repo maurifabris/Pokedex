@@ -88,3 +88,6 @@ body {
     bottom: 190px; }
   45%, 55% {
     bottom: 300px; } }
+    #tablaDePuntuacion{
+      margin-left: 10px;
+    }
